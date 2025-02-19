@@ -19,6 +19,12 @@ document.addEventListener("keydown", function (event) {
     jump()
 })
 
+function lyd(){
+    buzzer.onplay()
+}
+document.addEventListener("keydown", function (event) {
+    lyd()
+})
 
 const buzzer = document.getElementById("buzzer")
 
@@ -29,7 +35,6 @@ function mainLoop() {
 
     if (cactusLeft < 50 && cactusLeft > 0 && dinoTop >= 140) {
         gameRunning = false
-        buzzer.onplay()
         // alert("Game Over!")
         // TODO: Skriv en tekst på skjermen vha tekstElm.innerHTML = "Du tapte"
 
