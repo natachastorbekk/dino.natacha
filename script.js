@@ -1,7 +1,7 @@
 const dino = document.getElementById("dino")
 const cactus = document.getElementById("cactus")
-const tekstElement = document.getElementById ("tekstElement")
-const gameContainer = document.querySelector (".game")
+const tekstElement = document.getElementById("tekstElement")
+const gameContainer = document.querySelector(".game")
 
 let gameRunning = true
 
@@ -20,6 +20,8 @@ document.addEventListener("keydown", function (event) {
 })
 
 
+const buzzer = document.getElementById("buzzer")
+
 // Vår "main loop": Kjøres hvert 20 millisekund (vha setInterval)
 function mainLoop() {
     let dinoTop = parseInt(getComputedStyle(dino).getPropertyValue("top"))
@@ -27,6 +29,7 @@ function mainLoop() {
 
     if (cactusLeft < 50 && cactusLeft > 0 && dinoTop >= 140) {
         gameRunning = false
+        buzzer.onplay()
         // alert("Game Over!")
         // TODO: Skriv en tekst på skjermen vha tekstElm.innerHTML = "Du tapte"
 
@@ -51,10 +54,10 @@ function mainLoop() {
         restartImg.style.height = "100px"
         restartImg.style.width = "100px"
         restartImg.style.cursor = "pointer"
-        restartImg.addEventListener("click",() => location.reload())
+        restartImg.addEventListener("click", () => location.reload())
 
         tekstElement.appendChild(restartImg)
-    
+
     }
 
 }
