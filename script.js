@@ -20,7 +20,7 @@ document.addEventListener("keydown", function (event) {
 })
 
 function lyd(){
-    buzzer.onplay()
+    document.getElementById("buzzer").play()
 }
 document.addEventListener("keydown", function (event) {
     lyd()
