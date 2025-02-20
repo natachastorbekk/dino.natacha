@@ -5,6 +5,34 @@ const gameContainer = document.querySelector(".game")
 
 let gameRunning = true
 
+document.addEventListener("DOMContentLoaded", function(){
+    let tel = 0
+    const tellerElement = document.getElementById("teller")
+    const rekordElement = document.getElementById("rekord")
+    let rekord = localStorage.getItem("highscore")||0
+    rekordElement.textContent = "Rekord:" + rekord
+
+
+    function tellerNed (){
+        if (tel <= 1000 && gameRunning){
+            tellerElement.textContent = tel
+            tel++;
+
+            setTimeout(tellerNed, 100)
+        } else{
+            if (tel - 1 > rekord){
+                rekord = tel - 1
+                localStorage.setItem("highscore", rekord)
+                rekordElement.textContent = "Rekord:" + rekord
+            }
+        }
+
+        }
+    
+    tellerNed()
+
+})
+
 function jump() {
     if (gameRunning && dino.className != "jump") {
         dino.className = "jump"

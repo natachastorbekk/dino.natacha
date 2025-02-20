@@ -3,6 +3,7 @@
     height: 200px;
     border: 1px solid black;
     margin: auto;
+    position: relative;
 }
 
 #dino {
@@ -64,4 +65,25 @@
     width: 100px;
     height: 100px;
     text-align: center;
+}
+
+#teller {
+    position: absolute;
+    top: 40px;
+    right: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    color: black;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+#rekord{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+    padding: 5px 10px;
+    border-radius: 5px;
 }
