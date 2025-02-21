@@ -7,16 +7,22 @@ let gameRunning = true
 
 document.addEventListener("DOMContentLoaded", function(){
     let tel = 0
+    let speed = 5
     const tellerElement = document.getElementById("teller")
     const rekordElement = document.getElementById("rekord")
     let rekord = localStorage.getItem("highscore")||0
     rekordElement.textContent = "Rekord:" + rekord
 
+    let cactusLeft = 580
 
     function tellerNed (){
         if (tel <= 1000 && gameRunning){
             tellerElement.textContent = tel
             tel++;
+
+            if (tel% 10 === 0){
+                speed += 0.2
+            }
 
             setTimeout(tellerNed, 80)
         } else{
@@ -30,6 +36,19 @@ document.addEventListener("DOMContentLoaded", function(){
         }
     
     tellerNed()
+
+    function flyttKaktusen (){
+        if (gameRunning){
+            cactusLeft -= speed
+
+            if (cactusLeft <= -20){
+                cactusLeft = 580
+            }
+            cactus.style.left = cactusLeft + "px"
+            requestAnimationFrame(flyttKaktusen)
+        }
+    }
+    flyttKaktusen()
 
 })
 
