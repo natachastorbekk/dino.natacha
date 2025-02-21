@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function(){
             tellerElement.textContent = tel
             tel++;
 
-            setTimeout(tellerNed, 100)
+            setTimeout(tellerNed, 80)
         } else{
             if (tel - 1 > rekord){
                 rekord = tel - 1
