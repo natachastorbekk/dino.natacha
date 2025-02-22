@@ -41,7 +41,7 @@
     }
 }
 
-#cactus {
+#kaktus {
     width: 20px;
     height: 40px;
     position: relative;
@@ -50,6 +50,7 @@
     background-image: url("bilder/tre.png");
     background-size: 20px 40px;
 }
+.cactus
 
 @keyframes block {
     0% {

@@ -1,5 +1,5 @@
 const dino = document.getElementById("dino")
-const cactus = document.getElementById("cactus")
+const kaktus = document.getElementById("kaktus")
 const tekstElement = document.getElementById("tekstElement")
 const gameContainer = document.querySelector(".game")
 
@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function(){
     let rekord = localStorage.getItem("highscore")||0
     rekordElement.textContent = "Rekord:" + rekord
 
-    let cactusLeft = 580
+    let kaktusLeft = 580
 
     function tellerNed (){
         if (tel <= 1000 && gameRunning){
@@ -39,12 +39,12 @@ document.addEventListener("DOMContentLoaded", function(){
 
     function flyttKaktusen (){
         if (gameRunning){
-            cactusLeft -= speed
+            kaktusLeft -= speed
 
-            if (cactusLeft <= -20){
-                cactusLeft = 580
+            if (kaktusLeft <= -20){
+                kaktusLeft = 580
             }
-            cactus.style.left = cactusLeft + "px"
+            kaktus.style.left = kaktusLeft + "px"
             requestAnimationFrame(flyttKaktusen)
         }
     }
@@ -75,9 +75,9 @@ const buzzer = document.getElementById("buzzer")
 // Vår "main loop": Kjøres hvert 20 millisekund (vha setInterval)
 function mainLoop() {
     let dinoTop = parseInt(getComputedStyle(dino).getPropertyValue("top"))
-    let cactusLeft = parseInt(window.getComputedStyle(cactus).getPropertyValue("left"))
+    let kaktusLeft = parseInt(window.getComputedStyle(kaktus).getPropertyValue("left"))
 
-    if (cactusLeft < 50 && cactusLeft > 0 && dinoTop >= 140) {
+    if (kaktusLeft < 50 && kaktusLeft > 0 && dinoTop >= 140) {
         gameRunning = false
         lyd()
         // alert("Game Over!")
@@ -85,8 +85,8 @@ function mainLoop() {
 
         // Stop intervallet vårt i å kjøre main-loop:
         clearInterval(mainInterval)
-        cactus.style.animation = "none"
-        cactus.style.display = "none"
+        kaktus.style.animation = "none"
+        kaktus.style.display = "none"
 
         //Endre bakgrunnsfarge til rød når du taper
         gameContainer.style.backgroundColor = "red"
