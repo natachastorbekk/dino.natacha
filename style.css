@@ -11,6 +11,9 @@
     margin: auto;
     position: relative;
 }
+#tekstElement{
+    font-family: "Jockey One", serif;
+}
 
 #dino {
     width: 50px;
