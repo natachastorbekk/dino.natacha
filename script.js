@@ -6,11 +6,14 @@ const gameContainer = document.querySelector(".game")
 let gameRunning = true
 
 document.addEventListener("DOMContentLoaded", function(){
+    localStorage.removeItem("highscore")
+
     let tel = 0
     let speed = 5
     const tellerElement = document.getElementById("teller")
     const rekordElement = document.getElementById("rekord")
-    let rekord = localStorage.getItem("highscore")||0
+
+    let rekord = sessionStorage.getItem("highscore")||0
     rekordElement.textContent = "Rekord:" + rekord
 
     let kaktusLeft = 580
@@ -30,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function(){
         } else{
             if (tel - 1 > rekord){ //skjekker rekord i forhold til poengsum og hvis den er høyere blir poengsummen endret
                 rekord = tel - 1
-                localStorage.setItem("highscore", rekord)
+                sessionStorage.setItem("highscore", rekord)
                 rekordElement.textContent = "Rekord:" + rekord
             }
         }
