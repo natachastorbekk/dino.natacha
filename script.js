@@ -15,6 +15,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
     let kaktusLeft = 580
 
+    //Får telleren til å telle opp mot 1000 til en vis fart
     function tellerNed (){
         if (tel <= 1000 && gameRunning){
             tellerElement.textContent = tel
@@ -23,10 +24,11 @@ document.addEventListener("DOMContentLoaded", function(){
             if (tel% 10 === 0){
                 speed += 0.2
             }
-
+            
+            //Poengsumen øker med 1 hvert 0.8 sekund
             setTimeout(tellerNed, 80)
         } else{
-            if (tel - 1 > rekord){
+            if (tel - 1 > rekord){ //skjekker rekord i forhold til poengsum og hvis den er høyere blir poengsummen endret
                 rekord = tel - 1
                 localStorage.setItem("highscore", rekord)
                 rekordElement.textContent = "Rekord:" + rekord
@@ -37,7 +39,8 @@ document.addEventListener("DOMContentLoaded", function(){
     
     tellerNed()
 
-    function flyttKaktusen (){
+
+    function flyttKaktusen (){ //Kaktusen flytter seg mot dinosauren, og hver gang den kommer ut av bokse (580) så kommer det en ny en
         if (gameRunning){
             kaktusLeft -= speed
 
@@ -54,10 +57,10 @@ document.addEventListener("DOMContentLoaded", function(){
 
 function jump() {
     if (gameRunning && dino.className != "jump") {
-        dino.className = "jump"
+        dino.className = "jump"// klassen "jump" får dinosauren til å hoppe
         setTimeout(function () {
             dino.className = ""
-        }, 500);
+        }, 500); //hoppet til dinosauren varer i 500 milisekunder før den går ned til bakken igjen
     }
 }
 
